@@ -1,0 +1,31 @@
+---
+title: "short breaks"
+output: html_notebook
+---
+
+```{r setup}
+library(readxl)
+
+df <- read_excel("Book2.xlsx", range = "b6:C21")
+
+df_before = c(df$`boxes per day before`)
+df_after = c(df$`boxes per day afer`)
+mean_before = mean(df_before)
+```
+
+## assumption
+H0: productivity has no change in before/after.  
+H1: productivity has changed before/after.  
+Significant level: 5%
+
+```{r}
+t.test(
+  df_before,
+  df_after,
+  paired = T
+)
+```
+Paired T test shows H0 is true.  
+P value (0.1139) is greater than 5%.  H0 is not rejected.  
+
+It means short breaks have no impact to productivity.
