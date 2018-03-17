@@ -29,3 +29,40 @@ Paired T test shows H0 is true.
 P value (0.1139) is greater than 5%.  H0 is not rejected.  
 
 It means short breaks have no impact to productivity.
+
+## assumption
+H0: productivity has no change in before/after.  
+H1: productivity is improved. -> "before" mean is smaller than "after" mean.  
+Significant level: 5%
+
+```{r}
+t.test(
+  df_before,
+  df_after,
+  paired = T,
+  alternative = "less"
+)
+```
+Paired T test shows H0 is true.  
+P value (0.05697) is greater than 5%.  H0 is not rejected.  
+
+It means short breaks have no impact to productivity.
+
+## assumption
+H0: productivity has no change in before/after.  
+H1: productivity is made worse. -> "before" mean is larger than "after" mean.  
+Significant level: 5%
+
+```{r}
+t.test(
+  df_before,
+  df_after,
+  paired = T,
+  alternative = "greater"
+)
+```
+Paired T test shows H0 is true.  
+P value (0.943) is greater than 5%.  H0 is not rejected.  
+
+## conclusion
+Taking short breakes has no impact to productivity.

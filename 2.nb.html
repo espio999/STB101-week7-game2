@@ -216,10 +216,81 @@ mean of the differences
 <p>Paired T test shows H0 is true.<br />
 P value (0.1139) is greater than 5%. H0 is not rejected.</p>
 <p>It means short breaks have no impact to productivity.</p>
+</div>
+<div id="assumption-1" class="section level2">
+<h2>assumption</h2>
+<p>H0: productivity has no change in before/after.<br />
+H1: productivity is improved. -&gt; “before” mean is smaller than “after” mean.<br />
+Significant level: 5%</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudC50ZXN0KFxuICBkZl9iZWZvcmUsXG4gIGRmX2FmdGVyLFxuICBwYWlyZWQgPSBULFxuICBhbHRlcm5hdGl2ZSA9IFwibGVzc1wiXG4pXG5gYGAifQ== -->
+<pre class="r"><code>t.test(
+  df_before,
+  df_after,
+  paired = T,
+  alternative = &quot;less&quot;
+)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFBhaXJlZCB0LXRlc3RcblxuZGF0YTogIGRmX2JlZm9yZSBhbmQgZGZfYWZ0ZXJcbnQgPSAtMS42ODYsIGRmID0gMTQsIHAtdmFsdWUgPSAwLjA1Njk3XG5hbHRlcm5hdGl2ZSBoeXBvdGhlc2lzOiB0cnVlIGRpZmZlcmVuY2UgaW4gbWVhbnMgaXMgbGVzcyB0aGFuIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAgICAgIC1JbmYgMC4zMTI3NDU3XG5zYW1wbGUgZXN0aW1hdGVzOlxubWVhbiBvZiB0aGUgZGlmZmVyZW5jZXMgXG4gICAgICAgICAgICAgICAgICAgICAtNyBcbiJ9 -->
+<pre><code>
+    Paired t-test
+
+data:  df_before and df_after
+t = -1.686, df = 14, p-value = 0.05697
+alternative hypothesis: true difference in means is less than 0
+95 percent confidence interval:
+      -Inf 0.3127457
+sample estimates:
+mean of the differences 
+                     -7 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Paired T test shows H0 is true.<br />
+P value (0.05697) is greater than 5%. H0 is not rejected.</p>
+<p>It means short breaks have no impact to productivity.</p>
+</div>
+<div id="assumption-2" class="section level2">
+<h2>assumption</h2>
+<p>H0: productivity has no change in before/after.<br />
+H1: productivity is made worse. -&gt; “before” mean is larger than “after” mean.<br />
+Significant level: 5%</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudC50ZXN0KFxuICBkZl9iZWZvcmUsXG4gIGRmX2FmdGVyLFxuICBwYWlyZWQgPSBULFxuICBhbHRlcm5hdGl2ZSA9IFwiZ3JlYXRlclwiXG4pXG5gYGAifQ== -->
+<pre class="r"><code>t.test(
+  df_before,
+  df_after,
+  paired = T,
+  alternative = &quot;greater&quot;
+)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFBhaXJlZCB0LXRlc3RcblxuZGF0YTogIGRmX2JlZm9yZSBhbmQgZGZfYWZ0ZXJcbnQgPSAtMS42ODYsIGRmID0gMTQsIHAtdmFsdWUgPSAwLjk0M1xuYWx0ZXJuYXRpdmUgaHlwb3RoZXNpczogdHJ1ZSBkaWZmZXJlbmNlIGluIG1lYW5zIGlzIGdyZWF0ZXIgdGhhbiAwXG45NSBwZXJjZW50IGNvbmZpZGVuY2UgaW50ZXJ2YWw6XG4gLTE0LjMxMjc1ICAgICAgIEluZlxuc2FtcGxlIGVzdGltYXRlczpcbm1lYW4gb2YgdGhlIGRpZmZlcmVuY2VzIFxuICAgICAgICAgICAgICAgICAgICAgLTcgXG4ifQ== -->
+<pre><code>
+    Paired t-test
+
+data:  df_before and df_after
+t = -1.686, df = 14, p-value = 0.943
+alternative hypothesis: true difference in means is greater than 0
+95 percent confidence interval:
+ -14.31275       Inf
+sample estimates:
+mean of the differences 
+                     -7 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Paired T test shows H0 is true.<br />
+P value (0.943) is greater than 5%. H0 is not rejected.</p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>conclusion</h2>
+<p>Taking short breakes has no impact to productivity.</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogInNob3J0IGJyZWFrcyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyIHNldHVwfQ0KbGlicmFyeShyZWFkeGwpDQoNCmRmIDwtIHJlYWRfZXhjZWwoIkJvb2syLnhsc3giLCByYW5nZSA9ICJiNjpDMjEiKQ0KDQpkZl9iZWZvcmUgPSBjKGRmJGBib3hlcyBwZXIgZGF5IGJlZm9yZWApDQpkZl9hZnRlciA9IGMoZGYkYGJveGVzIHBlciBkYXkgYWZlcmApDQptZWFuX2JlZm9yZSA9IG1lYW4oZGZfYmVmb3JlKQ0KYGBgDQoNCiMjIGFzc3VtcHRpb24NCkgwOiBwcm9kdWN0aXZpdHkgaGFzIG5vIGNoYW5nZSBpbiBiZWZvcmUvYWZ0ZXIuICANCkgxOiBwcm9kdWN0aXZpdHkgaGFzIGNoYW5nZWQgYmVmb3JlL2FmdGVyLiAgDQpTaWduaWZpY2FudCBsZXZlbDogNSUNCg0KYGBge3J9DQp0LnRlc3QoDQogIGRmX2JlZm9yZSwNCiAgZGZfYWZ0ZXIsDQogIHBhaXJlZCA9IFQNCikNCmBgYA0KUGFpcmVkIFQgdGVzdCBzaG93cyBIMCBpcyB0cnVlLiAgDQpQIHZhbHVlICgwLjExMzkpIGlzIGdyZWF0ZXIgdGhhbiA1JS4gIEgwIGlzIG5vdCByZWplY3RlZC4gIA0KDQpJdCBtZWFucyBzaG9ydCBicmVha3MgaGF2ZSBubyBpbXBhY3QgdG8gcHJvZHVjdGl2aXR5Lg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogInNob3J0IGJyZWFrcyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCmBgYHtyIHNldHVwfQ0KbGlicmFyeShyZWFkeGwpDQoNCmRmIDwtIHJlYWRfZXhjZWwoIkJvb2syLnhsc3giLCByYW5nZSA9ICJiNjpDMjEiKQ0KDQpkZl9iZWZvcmUgPSBjKGRmJGBib3hlcyBwZXIgZGF5IGJlZm9yZWApDQpkZl9hZnRlciA9IGMoZGYkYGJveGVzIHBlciBkYXkgYWZlcmApDQptZWFuX2JlZm9yZSA9IG1lYW4oZGZfYmVmb3JlKQ0KYGBgDQoNCiMjIGFzc3VtcHRpb24NCkgwOiBwcm9kdWN0aXZpdHkgaGFzIG5vIGNoYW5nZSBpbiBiZWZvcmUvYWZ0ZXIuICANCkgxOiBwcm9kdWN0aXZpdHkgaGFzIGNoYW5nZWQgYmVmb3JlL2FmdGVyLiAgDQpTaWduaWZpY2FudCBsZXZlbDogNSUNCg0KYGBge3J9DQp0LnRlc3QoDQogIGRmX2JlZm9yZSwNCiAgZGZfYWZ0ZXIsDQogIHBhaXJlZCA9IFQNCikNCmBgYA0KUGFpcmVkIFQgdGVzdCBzaG93cyBIMCBpcyB0cnVlLiAgDQpQIHZhbHVlICgwLjExMzkpIGlzIGdyZWF0ZXIgdGhhbiA1JS4gIEgwIGlzIG5vdCByZWplY3RlZC4gIA0KDQpJdCBtZWFucyBzaG9ydCBicmVha3MgaGF2ZSBubyBpbXBhY3QgdG8gcHJvZHVjdGl2aXR5Lg0KDQojIyBhc3N1bXB0aW9uDQpIMDogcHJvZHVjdGl2aXR5IGhhcyBubyBjaGFuZ2UgaW4gYmVmb3JlL2FmdGVyLiAgDQpIMTogcHJvZHVjdGl2aXR5IGlzIGltcHJvdmVkLiAtPiAiYmVmb3JlIiBtZWFuIGlzIHNtYWxsZXIgdGhhbiAiYWZ0ZXIiIG1lYW4uICANClNpZ25pZmljYW50IGxldmVsOiA1JQ0KDQpgYGB7cn0NCnQudGVzdCgNCiAgZGZfYmVmb3JlLA0KICBkZl9hZnRlciwNCiAgcGFpcmVkID0gVCwNCiAgYWx0ZXJuYXRpdmUgPSAibGVzcyINCikNCmBgYA0KUGFpcmVkIFQgdGVzdCBzaG93cyBIMCBpcyB0cnVlLiAgDQpQIHZhbHVlICgwLjA1Njk3KSBpcyBncmVhdGVyIHRoYW4gNSUuICBIMCBpcyBub3QgcmVqZWN0ZWQuICANCg0KSXQgbWVhbnMgc2hvcnQgYnJlYWtzIGhhdmUgbm8gaW1wYWN0IHRvIHByb2R1Y3Rpdml0eS4NCg0KIyMgYXNzdW1wdGlvbg0KSDA6IHByb2R1Y3Rpdml0eSBoYXMgbm8gY2hhbmdlIGluIGJlZm9yZS9hZnRlci4gIA0KSDE6IHByb2R1Y3Rpdml0eSBpcyBtYWRlIHdvcnNlLiAtPiAiYmVmb3JlIiBtZWFuIGlzIGxhcmdlciB0aGFuICJhZnRlciIgbWVhbi4gIA0KU2lnbmlmaWNhbnQgbGV2ZWw6IDUlDQoNCmBgYHtyfQ0KdC50ZXN0KA0KICBkZl9iZWZvcmUsDQogIGRmX2FmdGVyLA0KICBwYWlyZWQgPSBULA0KICBhbHRlcm5hdGl2ZSA9ICJncmVhdGVyIg0KKQ0KYGBgDQpQYWlyZWQgVCB0ZXN0IHNob3dzIEgwIGlzIHRydWUuICANClAgdmFsdWUgKDAuOTQzKSBpcyBncmVhdGVyIHRoYW4gNSUuICBIMCBpcyBub3QgcmVqZWN0ZWQuICANCg0KIyMgY29uY2x1c2lvbg0KVGFraW5nIHNob3J0IGJyZWFrZXMgaGFzIG5vIGltcGFjdCB0byBwcm9kdWN0aXZpdHku</div>
 
 
 
